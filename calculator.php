@@ -4,8 +4,12 @@
 <body>
 <?php
 
-$in_a=$_GET['inputa'];
-if (empty($in_a)) {
+// $in_a=$_GET['inputa'];
+// if (empty($in_a)) {
+// 	$in_a = 0;
+// }
+if (is_null($_GET['inputa'])) {
+	echo "input a is null!";
 	$in_a = 0;
 }
 $in_b=$_GET['inputb'];
