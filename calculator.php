@@ -5,13 +5,16 @@
 <?php
 
 $in_a=$_GET['inputa'];
+if (empty($in_a)) {
+	$in_a = 0;
+}
 $in_b=$_GET['inputb'];
+if (empty($in_b)) {
+	$in_b = 0;
+}
 $method=$_GET['method'];
 
-if (empty($in_a) || empty($in_b) || empty($method)) {
-	echo "Inputs should not be empty";
-}
-elseif ($in_b == 0 && $method == 'div') {
+if ($in_b == 0 && $method == 'div') {
 	echo "divisor cannot be 0!";
 }
 else {
