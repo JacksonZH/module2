@@ -8,7 +8,7 @@
 // if (empty($in_a)) {
 // 	$in_a = 0;
 // }
-if (is_null($_GET['inputa']) || is_null($_GET['inputb'])) {
+if (is_null($_GET['inputa']) || is_null($_GET['inputb']) || is_null($_GET['method'])) {
 	echo "Inputs should not be empty!";
 	exit();
 }
