@@ -8,9 +8,9 @@
 // if (empty($in_a)) {
 // 	$in_a = 0;
 // }
-if (array_search('inputa', $_GET) === FALSE || 
-	array_search('inputb', $_GET) === FALSE ||
-	array_search('method', $_GET) === FALSE ) {
+if (!array_key_exists('inputa', $_GET) || 
+	!array_key_exists('inputb', $_GET) ||
+	!array_key_exists('method', $_GET) ) {
 	echo "Inputs should not be empty!";
 	exit();
 }
