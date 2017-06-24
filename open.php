@@ -10,11 +10,27 @@
 	}
 
 	// check current permission status
-	$user = $_SESSION['username'];
-	$userlist = file_get_contents('~/users/UserList.txt')
-	// if not permitted, redirect to login
-	if (strpos($userlist, $user) == FALSE) {
-		redirect();
+	if ($_SESSION['username'] == NULL) {
+		if ($_GET['username'] !== NULL) {
+			$user = $_GET['username'];
+			// check user list
+			if (strpos(file_get_contents('~/users/UserList.txt'), $user) == FALSE) {
+				redirect();
+			}
+			// initialize session variables
+			$_SESSION['username'] = $user;
+			$_SESSION['dirpath'] = array();
+			$_SESSION['filename'] = $user;
+		}
+	}
+	else {
+		$user = $_SESSION['username'];
+		// check user list
+		if (strpos(file_get_contents('~/users/UserList.txt'), $user) == FALSE) {
+			redirect();
+		}
+		// update session variable
+		$_SESSION['filename'] = $_GET['filename'];
 	}
 ?>
 
@@ -75,7 +91,7 @@
 
 		// return to the last repo
 		if ($_SESSION['filename'] == NULL) {
-			// delete the last element in path array
+			// update session variable
 			array_pop($_SESSION['dirpath']);
 			// generate new path
 			$dirPath = getPath($_SESSION);
@@ -85,7 +101,7 @@
 			listContent($dirPath);
 		}
 		else {
-			// add filename to path array
+			// update session variable
 			array_push($_SESSION['dirpath'], $filename);
 			// generate new path
 			$dirPath = getPath($_SESSION);
@@ -110,6 +126,10 @@
 
 	<form action="http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/newfolder.php" method="GET">
 		<input type="submit" name="New folder">
+	</form><br>
+
+	<form action="http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/logout.php" method="GET">
+		<input type="submit" name="Logout">
 	</form>
 </body>
 </html>
