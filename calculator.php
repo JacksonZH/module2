@@ -9,7 +9,7 @@ $in_b=$_GET['inputb'];
 $method=$_GET['method'];
 
 
-if (is_null($in_a) || is_null($in_b) || is_null($method)) {
+if (is_null($_GET['inputa']) || is_null($_GET['inputb']) || is_null($_GET['method'])) {
 	echo "Inputs should not be empty";
 }
 elseif ($in_b == 0 && $method == 'div') {
