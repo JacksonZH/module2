@@ -8,14 +8,12 @@
 // if (empty($in_a)) {
 // 	$in_a = 0;
 // }
-if (is_null($_GET['inputa'])) {
-	echo "input a is null!";
-	$in_a = 0;
+if (is_null($_GET['inputa']) || is_null($_GET['inputb'])) {
+	echo "Inputs should not be empty!";
+	exit();
 }
+$in_a=$_GET['inputa'];
 $in_b=$_GET['inputb'];
-if (empty($in_b)) {
-	$in_b = 0;
-}
 $method=$_GET['method'];
 
 if ($in_b == 0 && $method == 'div') {
