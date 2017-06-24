@@ -8,11 +8,6 @@ $in_a=$_GET['inputa'];
 $in_b=$_GET['inputb'];
 $method=$_GET['method'];
 
-echo "in_a: ".$in_a;
-echo "<br>";
-echo "in_b: ".$in_b;
-
-
 if (empty($in_a) || empty($in_b) || empty($method)) {
 	echo "Inputs should not be empty";
 }
