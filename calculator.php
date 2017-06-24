@@ -13,7 +13,7 @@ echo "<br>";
 echo $in_b;
 
 
-if (is_numeric($in_a) || is_numeric($in_b) || is_null($method)) {
+if (empty($in_a) || empty($in_b) || empty($method)) {
 	echo "Inputs should not be empty";
 }
 elseif ($in_b == 0 && $method == 'div') {
