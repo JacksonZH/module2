@@ -9,7 +9,7 @@ $in_b=$_GET['inputb'];
 $method=$_GET['method'];
 
 echo $in_a;
-echo "<br";
+echo "<br>";
 echo $in_b;
 
 
