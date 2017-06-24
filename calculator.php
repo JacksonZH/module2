@@ -11,9 +11,10 @@
 if (!array_key_exists('inputa', $_GET) || 
 	!array_key_exists('inputb', $_GET) ||
 	!array_key_exists('method', $_GET) ) {
-	echo "Inputs should not be empty!";
+	echo "Invalid access!";
 	exit();
 }
+
 $in_a=$_GET['inputa'];
 $in_b=$_GET['inputb'];
 $method=$_GET['method'];
