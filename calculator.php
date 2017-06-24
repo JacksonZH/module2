@@ -9,11 +9,12 @@ $in_a=$_GET['inputa'];
 $in_b=$_GET['inputb'];
 $method=$_GET['method'];
 
-if ($in_b == 0 && $method == 'div') {
-	echo "divisor cannot be 0!";
-}
-elseif (is_null($in_a) == TRUE || is_null($in_b) == TRUE || is_null($in_method) == TRUE) {
+
+if (is_null($in_a) || is_null($in_b) || is_null($in_method)) {
 	echo "Inputs should not be empty";
+}
+elseif ($in_b == 0 && $method == 'div') {
+	echo "divisor cannot be 0!";
 }
 else {
 	switch ($method) {
