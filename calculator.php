@@ -8,6 +8,10 @@ $in_a=$_GET['inputa'];
 $in_b=$_GET['inputb'];
 $method=$_GET['method'];
 
+echo $in_a;
+echo "<br";
+echo $in_b;
+
 
 if (is_null($_GET['inputa']) || is_null($_GET['inputb']) || is_null($_GET['method'])) {
 	echo "Inputs should not be empty";
