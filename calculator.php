@@ -2,7 +2,6 @@
 <html>
 <head><title> Calculator </title></head>
 <body>
-Result: 
 <?php
 
 $in_a=$_GET['inputa'];
@@ -17,6 +16,7 @@ elseif ($in_b == 0 && $method == 'div') {
 	echo "divisor cannot be 0!";
 }
 else {
+	echo "Result: ";
 	switch ($method) {
 
 	case "add":
