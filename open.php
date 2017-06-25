@@ -26,7 +26,7 @@
 	$uname = "username";
 	$dpath = "directorypath";
 	$fname = "filename";
-name
+	
 	// check current permission status
 	if (array_key_exists($uname, $_SESSION)) { 
 		// Normally, if the key exists, the value must not be nonempty, this is just a double check
