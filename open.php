@@ -15,7 +15,7 @@
 	   retrieves file name from seesion variable     :     filename
 -->
 
-<?php
+<!-- <?php
 	session_start();
 	// redirect to login page with indicating the identity validation failed
 	function redirect() {
@@ -57,7 +57,7 @@
 	else {
 		redirect();
 	}
-?>
+?> -->
 
 <!DOCTYPE html>
 <html>
