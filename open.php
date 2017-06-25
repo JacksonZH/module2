@@ -116,15 +116,15 @@
 	?>
 
 	<form action="http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/upload.php" method="GET">
-		<input type="submit" name="Upload">
+		<input type="submit" name="Upload" value="Upload">
 	</form>
 
 	<form action="http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/newfolder.php" method="GET">
-		<input type="submit" name="New folder">
+		<input type="submit" name="New folder" value="New folder">
 	</form><br>
 
 	<form action="http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/logout.php" method="GET">
-		<input type="submit" name="Logout">
+		<input type="submit" name="Logout" value="Logout">
 	</form>
 </body>
 </html>
