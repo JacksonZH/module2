@@ -61,7 +61,7 @@
 	}
 	else {
 		$watcher_1 = "else";
-		redirect();
+		// redirect();
 	}
 ?>
 
