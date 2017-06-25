@@ -20,7 +20,7 @@
 	// redirect to login page with indicating the identity validation failed
 	function redirect() {
 		header("Location: http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/login.php?info=invalid");
-		exit();
+		exit;
 	}
 	// parameters
 	$uname = "username";
@@ -143,6 +143,9 @@
 			listContent();
 		}
 		elseif (file_exists(getFilePath())) {
+
+			// for debug
+			echo "file/directory existx";
 			if (is_dir(getFilePath())) {
 				array_push($_SESSION[$dpath], $_GET[$fname]);
 				listContent();
@@ -153,7 +156,7 @@
 		}
 		else {
 			echo "No such file or directory!";
-			exit();
+			exit;
 		}
 	?>
 
