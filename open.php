@@ -29,6 +29,7 @@
 
 	// check current permission status
 	if (array_key_exists($uname, $_SESSION)) { 
+		echo "if";
 		// Normally, if the key exists, the value must not be nonempty, this is just a double check
 		if (!empty($_SESSION[$uname])) {  
 			$user = $_SESSION[$uname];
@@ -43,6 +44,7 @@
 	}
 	// if the key does not exist, this access to open.php must be the first time
 	elseif (!array_key_exists($uname, array) && !empty($GET[$uname])) { 
+		echo "elseif";
 	// 	$user = $_GET[$uname];
 	// 	// check whether the username matches the names in the user list
 	// 	if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
@@ -56,6 +58,7 @@
 		redirect();
 	}
 	else {
+		echo "else";
 		redirect();
 	}
 ?>
