@@ -15,7 +15,49 @@
 	   retrieves file name from seesion variable     :     filename
 -->
 
+<?php
+	session_start();
+	// redirect to login page with indicating the identity validation failed
+	function redirect() {
+		header("Location: http://ec2-13-58-219-145.us-east-2.compute.amazonaws.com/~jackson/module2/trunk/login.php?info=invalid");
+		exit();
+	}
+	// parameters
+	$uname = "username";
+	$dpath = "directorypath";
+	$fname = "filename";
 
+	// check current permission status
+	if (array_key_exists($uname, $_SESSION)) { 
+		// Normally, if the key exists, the value must not be nonempty, this is just a double check
+		if (!empty($_SESSION[$uname])) {  
+			$user = $_SESSION[$uname];
+			// check user list
+			if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
+				redirect();
+			}
+		}
+		else {
+			redirect();
+		}
+	}
+	// if the key does not exist, this access to open.php must be the first time
+	elseif (!array_key_exists($uname, array) && !empty($GET[$uname])) { 
+		$user = $_GET[$uname];
+		// check whether the username matches the names in the user list
+		if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
+			redirect();
+		}
+		// initialize session variables
+		$_SESSION[$uname] = $user;
+		// $_SESSION[$dpath] = array();
+		$_GET[$fname] = $_SESSION[$uname];
+		unset($_GET[$uname]);
+	}
+	else {
+		redirect();
+	}
+?>
 
 <!DOCTYPE html>
 <html>
