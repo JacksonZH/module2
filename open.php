@@ -46,7 +46,7 @@
 		}
 	}
 	// if the key does not exist, this access to open.php must be the first time
-	elseif (!array_key_exists($uname, array) && !empty($GET[$uname])) { 
+	elseif (!array_key_exists($uname, $_SESSION) && !empty($GET[$uname])) { 
 		$watcher_1 = "elseif";
 		$user = $_GET[$uname];
 		// check whether the username matches the names in the user list
