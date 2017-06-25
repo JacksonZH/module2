@@ -27,40 +27,41 @@
 	$dpath = "directorypath";
 	$fname = "filename";
 
+	$watcher_1 = "";
+
 
 	// check current permission status
 	if (array_key_exists($uname, $_SESSION)) { 
-		echo "if";
+		$watcher_1 = "if";
 		// Normally, if the key exists, the value must not be nonempty, this is just a double check
-		// if (!empty($_SESSION[$uname])) {  
-		// 	$user = $_SESSION[$uname];
-		// 	// check user list
-		// 	if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
-		// 		redirect();
-		// 	}
-		// }
-		// else {
-		// 	redirect();
-		// }
+		if (!empty($_SESSION[$uname])) {  
+			$user = $_SESSION[$uname];
+			// check user list
+			if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
+				redirect();
+			}
+		}
+		else {
+			redirect();
+		}
 	}
 	// if the key does not exist, this access to open.php must be the first time
-	// elseif (!array_key_exists($uname, array) && !empty($GET[$uname])) { 
-	// 	echo "elseif";
-	// 	$user = $_GET[$uname];
-	// 	// check whether the username matches the names in the user list
-	// 	if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
-	// 		redirect();
-	// 	}
-	// 	// initialize session variables
-	// 	$_SESSION[$uname] = $user;
-	// 	// $_SESSION[$dpath] = array();
-	// 	$_GET[$fname] = $_SESSION[$uname];
-	// 	unset($_GET[$uname]);
-		// redirect();
-	// }
+	elseif (!array_key_exists($uname, array) && !empty($GET[$uname])) { 
+		$watcher_1 = "elseif";
+		$user = $_GET[$uname];
+		// check whether the username matches the names in the user list
+		if (!strpos(file_get_contents('~/users/UserList.txt'), $user)) {
+			redirect();
+		}
+		// initialize session variables
+		$_SESSION[$uname] = $user;
+		// $_SESSION[$dpath] = array();
+		$_GET[$fname] = $_SESSION[$uname];
+		unset($_GET[$uname]);
+	}
 	else {
-		echo "else";
-		// redirect();
+		$watcher_1 = "else";
+		redirect();
 	}
 ?>
 
@@ -139,6 +140,9 @@
 			header('content-type:'. $mime);
 			readfile($filePath);
 		}
+
+		//debug
+		echo $watcher_1;
 
 		// check if returned
 		if (empty($_GET[$fname])) {
