@@ -27,6 +27,8 @@
 	$dpath = "directorypath";
 	$fname = "filename";
 
+	echo "start";
+
 	// check current permission status
 	if (array_key_exists($uname, $_SESSION)) { 
 		echo "if";
@@ -61,6 +63,8 @@
 		echo "else";
 		// redirect();
 	}
+
+	echo "end";
 ?>
 
 <!DOCTYPE html>
